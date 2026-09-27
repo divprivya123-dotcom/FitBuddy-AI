@@ -1,0 +1,61 @@
+# FitBuddy – AI Fitness Plan Generator
+
+FitBuddy is a FastAPI web application that uses Google Gemini to create a personalized seven-day workout plan and a practical nutrition or recovery tip. Users can submit feedback and receive a revised plan while the original plan remains stored.
+
+## Features
+
+- User profile form with goal and intensity validation
+- Gemini-generated workout and nutrition guidance
+- Feedback-based plan updates
+- SQLite persistence with SQLAlchemy
+- Responsive Jinja2 pages and an admin user list
+- Friendly handling for invalid input, missing keys, and AI failures
+
+## Technologies
+
+Python, FastAPI, Uvicorn, Google Gemini API, SQLAlchemy, SQLite, Jinja2, HTML/CSS, python-multipart, python-dotenv.
+
+## Structure
+
+```text
+app/                 Application code and database layer
+templates/           Jinja2 pages
+static/style.css     Responsive UI styles
+.env                 Local Gemini key (never commit this file)
+requirements.txt     Python dependencies
+```
+
+## Setup on Windows PowerShell
+
+```powershell
+python -m venv fitbuddy-env
+.\fitbuddy-env\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
+Add your key to `.env`:
+
+```text
+GOOGLE_API_KEY=your_real_gemini_api_key
+```
+
+Run the application:
+
+```powershell
+uvicorn app.main:app --reload
+```
+
+Open [http://127.0.0.1:8000](http://127.0.0.1:8000/) and API docs at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
+
+## Routes
+
+- `GET /` home form
+- `POST /generate-workout` generate and save a plan
+- `POST /submit-feedback` revise a plan with Gemini
+- `GET /view-all-users` view stored users and plans
+
+The SQLite database is created automatically as `fitbuddy.db`. It is ignored by Git along with `.env`.
+
+## GitHub
+
+Create a repository, then run `git init`, `git add .`, `git commit -m "Initial FitBuddy application"`, add your GitHub remote, and push. Verify `.env` is ignored before pushing.
