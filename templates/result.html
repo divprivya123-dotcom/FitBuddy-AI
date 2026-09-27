@@ -6,7 +6,7 @@
 {% if error %}<div class="error">{{ error }}</div>{% endif %}{% if updated %}<div class="notice">Your feedback was applied. The original plan remains saved.</div>{% endif %}
 <div class="stack">
 <section class="card"><div class="eyebrow">FitBuddy plan</div><h1>{{ username }}'s week</h1><div class="meta"><div><small>User ID</small>{{ user_id }}</div><div><small>Age</small>{{ age }}</div><div><small>Weight</small>{{ weight }} kg</div><div><small>Goal</small>{{ goal }}</div><div><small>Intensity</small>{{ intensity }}</div></div></section>
-<section class="card"><h2>{% if updated %}Updated {% endif %}7-day workout plan</h2><div class="plan">{{ workout_plan }}</div></section>
+<section class="card"><h2>{% if updated %}Updated {% endif %}7-day workout plan</h2><div class="plan">{{ workout_plan | markdown | safe }}</div></section>
 <section class="card"><h2>Nutrition and recovery tip</h2><p>{{ nutrition_tip }}</p></section>
 <section class="card"><h2>Refine your plan</h2><form action="/submit-feedback" method="post"><div class="field"><label for="user_id">User ID</label><input id="user_id" name="user_id" value="{{ user_id }}" required></div><div class="field"><label for="feedback">What should change?</label><textarea id="feedback" name="feedback" placeholder="Add more cardio, include more rest days, add yoga..." required></textarea></div><button type="submit">Update workout plan</button></form></section>
 </div></main></body></html>

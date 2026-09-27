@@ -35,7 +35,18 @@ button:hover { background: #15513e; transform: translateY(-2px); }
 .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
 .meta div { border-left: 3px solid var(--lime); padding-left: 12px; }
 .meta small { display: block; color: var(--muted); }
-.plan { white-space: pre-wrap; word-break: break-word; background: #f5f9ef; border-left: 4px solid var(--green); padding: 18px; border-radius: 6px; }
+.plan { word-break: break-word; background: #f5f9ef; border-left: 4px solid var(--green); padding: 18px; border-radius: 6px; }
+.plan > :first-child { margin-top: 0; }
+.plan > :last-child { margin-bottom: 0; }
+.plan h1, .plan h2, .plan h3 { line-height: 1.3; margin: .7em 0 .35em; }
+.plan h1 { font-size: 1.4rem; }
+.plan h2 { font-size: 1.2rem; }
+.plan h3 { font-size: 1.05rem; }
+.plan p { margin: 0 0 .45em; }
+.plan li > p { margin: .15em 0; }
+.plan ul, .plan ol { margin: .25em 0 .5em; padding-left: 1.4rem; }
+.plan li + li { margin-top: .12em; }
+.plan hr { border: 0; border-top: 1px solid var(--line); margin: .7em 0; }
 .stack { display: grid; gap: 20px; }
 .notice { background: #eef8d8; border: 1px solid #d5e9a8; padding: 14px 18px; border-radius: 7px; }
 .table-wrap { overflow-x: auto; }

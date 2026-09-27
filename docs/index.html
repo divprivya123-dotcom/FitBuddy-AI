@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A static preview of FitBuddy, an AI fitness plan generator.">
+    <title>FitBuddy | Static preview</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="shell">
+    <nav class="nav"><a class="brand" href="./">Fit<span>Buddy</span></a><a href="#preview">Static preview</a></nav>
+    <section class="hero" id="preview">
+        <div>
+            <div class="eyebrow">AI guided movement</div>
+            <h1>Your stronger week starts here.</h1>
+            <p class="lede">FitBuddy shapes a practical seven-day workout plan around your goal, body, and pace.</p>
+        </div>
+        <form class="panel">
+            <h2>Build your plan</h2>
+            <div class="form-grid">
+                <div class="field"><label for="username">Name / username</label><input id="username" value="Alex Morgan" disabled></div>
+                <div class="field"><label for="user_id">User ID</label><input id="user_id" value="alex-001" disabled></div>
+                <div class="field"><label for="age">Age</label><input id="age" value="29" disabled></div>
+                <div class="field"><label for="weight">Weight (kg)</label><input id="weight" value="68" disabled></div>
+                <div class="field"><label for="goal">Fitness goal</label><select id="goal" disabled><option>General Wellness</option></select></div>
+                <div class="field"><label for="intensity">Workout intensity</label><select id="intensity" disabled><option>Medium</option></select></div>
+                <div class="field full"><button type="button" disabled>Generate my 7-day plan</button></div>
+            </div>
+            <p class="notice">Static preview only. Plan generation, feedback updates, and saved user records require the FitBuddy app server and are unavailable on GitHub Pages.</p>
+        </form>
+    </section>
+</main>
+</body>
+</html>

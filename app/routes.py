@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Form, Request
 from fastapi.templating import Jinja2Templates
 from pydantic import ValidationError
+from markdown_it import MarkdownIt
 
 from app.database import get_all_users, get_user, init_db, save_user, update_plan
 from app.gemini_generator import generate_workout_gemini
@@ -13,6 +14,14 @@ from app.updated_plan import update_workout_plan
 router = APIRouter()
 
 templates = Jinja2Templates(directory="templates")
+markdown = MarkdownIt("commonmark", {"html": False})
+
+
+def render_plan_markdown(plan):
+    return markdown.render(plan or "")
+
+
+templates.env.filters["markdown"] = render_plan_markdown
 init_db()
 
 
@@ -106,7 +115,8 @@ async def submit_feedback(
             "request": request, "error": "The plan could not be updated. Check your Gemini API key and try again.",
             "username": user.username, "user_id": user.user_id, "age": user.age,
             "weight": user.weight, "goal": user.goal, "intensity": user.intensity,
-            "workout_plan": user.original_plan, "nutrition_tip": user.nutrition_tip
+            "workout_plan": user.original_plan,
+            "nutrition_tip": user.nutrition_tip
         })
 
     return templates.TemplateResponse(

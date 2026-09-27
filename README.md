@@ -59,3 +59,7 @@ The SQLite database is created automatically as `fitbuddy.db`. It is ignored by 
 ## GitHub
 
 Create a repository, then run `git init`, `git add .`, `git commit -m "Initial FitBuddy application"`, add your GitHub remote, and push. Verify `.env` is ignored before pushing.
+
+## GitHub Pages preview
+
+The GitHub Actions workflow publishes a static preview from `docs/` when changes are pushed to `main` or `master`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The preview does not run FastAPI, Gemini requests, feedback updates, or SQLite storage; those features require the app server.
