@@ -1,11 +1,20 @@
-from sqlalchemy import create_engine
+import os
+
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "sqlite:///./fitbuddy.db"
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./fitbuddy.db")
+if os.getenv("VERCEL") and not os.getenv("DATABASE_URL"):
+    raise RuntimeError("Set DATABASE_URL to a hosted PostgreSQL database on Vercel.")
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = "postgresql+psycopg://" + DATABASE_URL.removeprefix("postgres://")
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+psycopg://", 1)
 
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False}
+    connect_args={"check_same_thread": False} if DATABASE_URL.startswith("sqlite:") else {},
+    pool_pre_ping=True,
 )
 
 SessionLocal = sessionmaker(
@@ -19,10 +28,9 @@ def init_db():
     from app.models import Base
 
     Base.metadata.create_all(bind=engine)
-    with engine.begin() as connection:
-        columns = connection.exec_driver_sql("PRAGMA table_info(users)").fetchall()
-        column_names = {column[1] for column in columns}
-        if "feedback" not in column_names:
+    column_names = {column["name"] for column in inspect(engine).get_columns("users")}
+    if "feedback" not in column_names:
+        with engine.begin() as connection:
             connection.exec_driver_sql(
                 "ALTER TABLE users ADD COLUMN feedback TEXT NOT NULL DEFAULT ''"
             )

@@ -63,3 +63,14 @@ Create a repository, then run `git init`, `git add .`, `git commit -m "Initial F
 ## GitHub Pages preview
 
 The GitHub Actions workflow publishes a static preview from `docs/` when changes are pushed to `main` or `master`. In the repository settings, set **Pages → Build and deployment → Source** to **GitHub Actions**. The preview does not run FastAPI, Gemini requests, feedback updates, or SQLite storage; those features require the app server.
+
+## Deploy the full app on Vercel
+
+GitHub Pages only hosts the static preview. To publish the working FastAPI app, import this repository as a Vercel project and connect it to GitHub. Vercel detects the FastAPI entry point in `app/main.py` and automatically deploys pushes to the production branch.
+
+Before deploying, add these environment variables in the Vercel project settings:
+
+- `GOOGLE_API_KEY`: your Gemini API key
+- `DATABASE_URL`: a PostgreSQL connection URL from a managed provider such as Neon; use its pooled URL when available
+
+Vercel's function filesystem is temporary and cannot provide durable SQLite storage. Local development continues to use `fitbuddy.db`; Vercel requires `DATABASE_URL` so generated plans, feedback, and user records persist in PostgreSQL. Do not commit either secret to the repository.
