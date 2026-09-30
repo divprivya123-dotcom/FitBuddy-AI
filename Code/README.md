@@ -21,9 +21,38 @@ Python, FastAPI, Uvicorn, Google Gemini API, SQLAlchemy, SQLite, Jinja2, HTML/CS
 app/                 Application code and database layer
 templates/           Jinja2 pages
 static/style.css     Responsive UI styles
+docs/                GitHub Pages preview and supporting documents
+Phase wise docs/     Phase-by-phase submission documents
 .env                 Local Gemini key (never commit this file)
 requirements.txt     Python dependencies
 ```
+
+## SmartBridge Phase-Wise Development
+
+The project is maintained and submitted through eight phases. The detailed material for each phase is stored in [`Phase wise docs/`](Phase%20wise%20docs/), while supporting project documentation remains in [`docs/`](docs/).
+
+```text
+Phase wise docs/
+├── Phase 01/  Brainstorming & Ideation
+├── Phase 02/  Requirement Analysis
+├── Phase 03/  Project Design
+├── Phase 04/  Project Planning
+├── Phase 05/  Project Development
+├── Phase 06/  Project Testing
+├── Phase 07/  Project Documentation
+└── Phase 08/  Project Demonstration
+```
+
+### Phase Documents
+
+1. [Brainstorming & Ideation](Phase%20wise%20docs/Phase%2001/README.md)
+2. [Requirement Analysis](Phase%20wise%20docs/Phase%2002/README.md)
+3. [Project Design](Phase%20wise%20docs/Phase%2003/README.md)
+4. [Project Planning](Phase%20wise%20docs/Phase%2004/README.md)
+5. [Project Development](Phase%20wise%20docs/Phase%2005/README.md)
+6. [Project Testing](Phase%20wise%20docs/Phase%2006/README.md)
+7. [Project Documentation](Phase%20wise%20docs/Phase%2007/README.md)
+8. [Project Demonstration](Phase%20wise%20docs/Phase%2008/README.md)
 
 ## Setup on Windows PowerShell
 

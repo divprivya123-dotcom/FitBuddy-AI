@@ -3,11 +3,11 @@ import time
 
 
 PRIMARY_MODEL = "gemini-3.1-flash-lite"
-FALLBACK_MODEL = "gemini-3.8-flash"
+FALLBACK_MODEL = "gemini-3.6-flash"
 
 
 def generate_content(client, prompt):
-    """Use the required model and fall back when Gemini reports temporary load."""
+    """Try the primary model, then fall back if Gemini reports an error."""
     last_error = None
     for model in (PRIMARY_MODEL, FALLBACK_MODEL):
         for attempt in range(2):
