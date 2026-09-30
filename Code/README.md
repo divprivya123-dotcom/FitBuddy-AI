@@ -25,26 +25,8 @@ docs/                GitHub Pages preview and supporting documents
 Phase wise docs/     Phase-by-phase submission documents
 .env                 Local Gemini key (never commit this file)
 requirements.txt     Python dependencies
+
 ```
-
-## SmartBridge Phase-Wise Development
-
-The project is maintained and submitted through eight phases. The detailed material for each phase is stored in [`Phase wise docs/`](Phase%20wise%20docs/), while supporting project documentation remains in [`docs/`](docs/).
-
-```text
-Phase wise docs/
-├── Phase 01/  Brainstorming & Ideation
-├── Phase 02/  Requirement Analysis
-├── Phase 03/  Project Design
-├── Phase 04/  Project Planning
-├── Phase 05/  Project Development
-├── Phase 06/  Project Testing
-├── Phase 07/  Project Documentation
-└── Phase 08/  Project Demonstration
-```
-
-[Project Demonstration](Phase%20wise%20docs/Phase%2008/README.md)
-
 ## Setup on Windows PowerShell
 
 ```powershell
