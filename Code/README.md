@@ -43,16 +43,7 @@ Phase wise docs/
 └── Phase 08/  Project Demonstration
 ```
 
-### Phase Documents
-
-1. [Brainstorming & Ideation](Phase%20wise%20docs/Phase%2001/README.md)
-2. [Requirement Analysis](Phase%20wise%20docs/Phase%2002/README.md)
-3. [Project Design](Phase%20wise%20docs/Phase%2003/README.md)
-4. [Project Planning](Phase%20wise%20docs/Phase%2004/README.md)
-5. [Project Development](Phase%20wise%20docs/Phase%2005/README.md)
-6. [Project Testing](Phase%20wise%20docs/Phase%2006/README.md)
-7. [Project Documentation](Phase%20wise%20docs/Phase%2007/README.md)
-8. [Project Demonstration](Phase%20wise%20docs/Phase%2008/README.md)
+[Project Demonstration](Phase%20wise%20docs/Phase%2008/README.md)
 
 ## Setup on Windows PowerShell
 
